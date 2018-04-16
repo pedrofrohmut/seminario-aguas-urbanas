@@ -1,0 +1,80 @@
+/* BIG SCREENS */
+@media (min-width: 576px) {
+  .siteTitle {
+    margin-left: 0 !important;
+  }
+  .siteTitle h1 {
+    font-size: 2.5em !important;
+  }
+  .siteTitle p.titleFooter {
+    font-size: 1.2em;
+  }
+  .textoDescricao p {
+    text-indent: 25px !important;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+  .tabelaProgramacao {
+    font-size: 1rem !important;
+  }
+  fieldset legend {
+    margin-bottom: 0.8em !important;
+  }
+  label {
+    display: block !important;
+  }
+}
+
+/* SMALL SCREENS */
+.siteTitle {
+  background-color: #099;
+  color: #fff;
+  min-width: 360px;
+  margin-left: -15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  opacity: 0.8;
+}
+.siteTitle h1 {
+  font-size: 2.1em;
+}
+p.titleFooter {
+    font-size: 1rem;
+    margin: 0;
+}
+.textoDescricao {
+  padding-top: 0.7em;
+}
+.textoDescricao p {
+  text-align: justify;
+  text-indent: 0px;
+}
+.programacaoTitle {
+  font-size: 1.7rem;
+  margin-bottom: 0.9em;
+  margin-top: 0.6em;
+  color: #099;
+}
+.ulProgramacao {
+  padding: 0 0 0 19px;
+}
+.tabelaProgramacao {
+  font-size: 0.8rem;
+}
+.formTitle {
+  font-size: 1.7rem;
+  margin-bottom: 0.9em;
+  margin-top: 0.6em;
+  color: #099;
+}
+fieldset legend {
+  margin-bottom: 0.4em;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+label {
+  display: none;
+}
+input[type="submit"].btn-primary {
+  margin-top: 15px;
+}
