@@ -26,3 +26,5 @@ CREATE TABLE inscricao (
   /* KEYS */
   PRIMARY KEY (id)
 );
+
+SELECT * FROM inscricao;
