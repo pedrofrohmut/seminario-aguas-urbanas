@@ -9,17 +9,19 @@ class ConnectionFactory {
     $dbname = "drc";
 
     // Create connection
-    $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+    try {
+      $pdo = new PDO("mysql:host={$dbhost};dbname={$dbname}", $dbuser, $dbpass);
+      // set the PDO error mode to exception
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      // Set the default fetch mode
+      $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+      // Set this so the LIMIT works
+      $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-    // Check connection
-    if ($mysqli->connect_error)
-      // die("Connection failed: " . $mysqli->connect_error);
+      return $pdo;
+    }
+    catch(PDOException $e) { // echo "Connection failed: " . $e->getMessage();
       return false;
-
-    // SET The CharSet to 'utf8'
-    $mysqli->set_charset("utf8");
-
-    return $mysqli;
+    }
   }
-
 }

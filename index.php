@@ -1,9 +1,9 @@
 <?php
-if (isset($_POST['submit'])) {
-  require_once "model/Inscricao.php";
-  require_once "dao/InscricaoDao.php";
-  require_once "banco/ConnectionFactory.php";
+require_once "model/Inscricao.php";
+require_once "dao/InscricaoDao.php";
+require_once "banco/ConnectionFactory.php";
 
+if (isset($_POST['submit'])) {
   $inscricao = new Inscricao();
   // SET Identificação
   $inscricao->setNome($_POST['nome']);
@@ -24,11 +24,13 @@ if (isset($_POST['submit'])) {
   $inscricao->setOutroTelefone($_POST['outroTelefone']);
   $inscricao->setEmail($_POST['email']);
 
-  $mysqli = ConnectionFactory::getConnection(); // echo $mysqli ? "Connectou" : "Falhou";
-
-  $dao = new InscricaoDao($mysqli);
-  $dao->new($inscricao);
-  $mysqli->close();
+  // TODO: Change the charset do banco para UTF8 na ConnectionFactory
+  if ($pdo = ConnectionFactory::getConnection()) {
+    $dao = new InscricaoDao($pdo);
+    $dao->add($inscricao);
+    // Closes the connection
+    $pdo = null;
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -177,36 +179,36 @@ if (isset($_POST['submit'])) {
         <fieldset>
           <legend>Identificação:</legend>
           <div class="form-group">
-            <label>Nome completo:</label>
-            <input type="text" class="form-control" name="nome" placeholder="Nome Completo">
+            <label class="required">Nome completo:</label>
+            <input type="text" class="form-control" name="nome" placeholder="Nome Completo" required>
           </div>
           <div class="form-group">
-            <label>Data de nascimento:</label>
-            <input type="text" class="form-control" name="dataNascimento" placeholder="dia/mês/ano (dd/mm/aaaa) ">
+            <label class="required">Data de nascimento:</label>
+            <input type="text" class="form-control" name="dataNascimento" placeholder="dia/mês/ano (dd/mm/aaaa) " required>
           </div>
           <div class="form-group">
-            <label>RG / Org. Emissor / UF (Documento de Identidade):</label>
-            <input type="text" class="form-control" name="rg" placeholder="RG / Órgão Emissor / UF ">
+            <label class="required">RG / Org. Emissor / UF (Documento de Identidade):</label>
+            <input type="text" class="form-control" name="rg" placeholder="RG / Órgão Emissor / UF " required>
           </div>
           <div class="form-group">
-            <label>CPF:</label>
-            <input type="text" class="form-control" name="cpf" placeholder="Número de CPF">
+            <label class="required">CPF:</label>
+            <input type="text" class="form-control" name="cpf" placeholder="Número de CPF" required>
           </div>
           <div class="form-group">
-            <label>Profissão / Área de Atuação:</label>
-            <input type="text" class="form-control" name="profissao" placeholder="Profissão e área de atuação">
+            <label class="required">Profissão / Área de Atuação:</label>
+            <input type="text" class="form-control" name="profissao" placeholder="Profissão e área de atuação" required>
           </div>
         </fieldset>
         <!-- <hr> -->
         <fieldset>
           <legend>Endereço:</legend>
           <div class="form-group">
-            <label>Endereço/Logradouro:</label>
-            <input type="text" class="form-control" name="endereco" placeholder="Logradouro (rua, avenida, travessa, entre outros)">
+            <label class="required">Endereço/Logradouro:</label>
+            <input type="text" class="form-control" name="endereco" placeholder="Logradouro (rua, avenida, travessa, entre outros)" required>
           </div>
           <div class="form-group">
-            <label>Número:</label>
-            <input type="text" class="form-control" name="endNumero" placeholder="Número">
+            <label class="required">Número:</label>
+            <input type="text" class="form-control" name="endNumero" placeholder="Número" required>
           </div>
           <div class="form-group">
             <label>Complemento:</label>
@@ -217,32 +219,32 @@ if (isset($_POST['submit'])) {
             <input type="text" class="form-control" name="bairro" placeholder="Bairro (opicional)">
           </div>
           <div class="form-group">
-            <label>Cidade:</label>
-            <input type="text" class="form-control" name="cidade" placeholder="Cidade">
+            <label class="required">Cidade:</label>
+            <input type="text" class="form-control" name="cidade" placeholder="Cidade" required>
           </div>
           <div class="form-group">
-            <label>UF:</label>
-            <input type="text" class="form-control" name="uf" placeholder="Unidade Federativa - UF">
+            <label class="required">UF:</label>
+            <input type="text" class="form-control" name="uf" placeholder="Unidade Federativa - UF" required>
           </div>
           <div class="form-group">
-            <label>CEP:</label>
-            <input type="text" class="form-control" name="cep" placeholder="CEP">
+            <label class="required">CEP:</label>
+            <input type="text" class="form-control" name="cep" placeholder="CEP" required>
           </div>
         </fieldset>
         <!-- <hr> -->
         <fieldset>
           <legend>Contato:</legend>
           <div class="form-group">
-            <label>Telefone / Celular:</label>
-            <input type="text" class="form-control" name="telefone" placeholder="Telefone (DDD) XXXXX-XXXX">
+            <label class="required">Telefone / Celular:</label>
+            <input type="text" class="form-control" name="telefone" placeholder="Telefone (DDD) XXXXX-XXXX" required>
           </div>
           <div class="form-group">
             <label>Outro telefone:</label>
             <input type="text" class="form-control" name="outroTelefone" placeholder="Outro telefone (opicional)">
           </div>
           <div class="form-group">
-            <label>E-mail:</label>
-            <input type="text" class="form-control" name="email" placeholder="E-mail (correio eletrônico)">
+            <label class="required">E-mail:</label>
+            <input type="text" class="form-control" name="email" placeholder="E-mail (correio eletrônico)" required>
           </div>
         </fieldset>
         <input type="submit" name="submit" class="btn btn-primary btn-block" value="Enviar Ficha de Inscrição">

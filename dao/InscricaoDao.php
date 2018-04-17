@@ -1,10 +1,11 @@
 <?php
 class InscricaoDao {
-  private $mysqli;
+  private $pdo;
 
-  public function __construct($mysqli) {
-    $this->mysqli = $mysqli;
+  public function __construct($pdo) {
+    $this->pdo = $pdo;
   }
+
   public function traduzDataParaBanco($data) {
     if ($data == '') {
       return '';
@@ -14,11 +15,8 @@ class InscricaoDao {
       return "{$dataSplit[2]}-{$dataSplit[1]}-{$dataSplit[0]}";
     }
   }
-  public function new($inscricao) {
-    // TODO: implementar este método
-    // $nome = $this->mysqli->real_escape_string($inscricao->getNome());
-    $data = $this->mysqli->real_escape_string($inscricao->getDataNascimento());
-    $data = $this->traduzDataParaBanco($data);
+
+  public function add($inscricao) {
     $sql = "
     INSERT INTO inscricao (
       nome,
@@ -38,23 +36,40 @@ class InscricaoDao {
       email
     )
     VALUES (
-      '{$this->mysqli->real_escape_string($inscricao->getNome())}',
-      '{$data}',
-      '{$this->mysqli->real_escape_string($inscricao->getRg())}',
-      '{$this->mysqli->real_escape_string($inscricao->getCpf())}',
-      '{$this->mysqli->real_escape_string($inscricao->getProfissao())}',
-      '{$this->mysqli->real_escape_string($inscricao->getEndereco())}',
-       {$this->mysqli->real_escape_string($inscricao->getEndNumero())},
-      '{$this->mysqli->real_escape_string($inscricao->getComplemento())}',
-      '{$this->mysqli->real_escape_string($inscricao->getBairro())}',
-      '{$this->mysqli->real_escape_string($inscricao->getCidade())}',
-      '{$this->mysqli->real_escape_string($inscricao->getUf())}',
-      '{$this->mysqli->real_escape_string($inscricao->getCep())}',
-      '{$this->mysqli->real_escape_string($inscricao->getTelefone())}',
-      '{$this->mysqli->real_escape_string($inscricao->getOutroTelefone())}',
-      '{$this->mysqli->real_escape_string($inscricao->getEmail())}'
+      :nome,
+      :dataNascimento,
+      :rg,
+      :cpf,
+      :profissao,
+      :endereco,
+      :endNumero,
+      :complemento,
+      :bairro,
+      :cidade,
+      :uf,
+      :cep,
+      :telefone,
+      :outroTelefone,
+      :email
     )";
-    // return $sql;
-    return $this->mysqli->query($sql);
+    $statement = $this->pdo->prepare($sql);
+    $statement->execute([
+      "nome"            => $inscricao->getNome(),
+      "dataNascimento"  => $this->traduzDataParaBanco(
+                           $inscricao->getDataNascimento()),
+      "rg"              => $inscricao->getRg(),
+      "cpf"             => $inscricao->getCpf(),
+      "profissao"       => $inscricao->getProfissao(),
+      "endereco"        => $inscricao->getEndereco(),
+      "endNumero"       => $inscricao->getEndNumero(),
+      "complemento"     => $inscricao->getComplemento(),
+      "bairro"          => $inscricao->getBairro(),
+      "cidade"          => $inscricao->getCidade(),
+      "uf"              => $inscricao->getUf(),
+      "cep"             => $inscricao->getCep(),
+      "telefone"        => $inscricao->getTelefone(),
+      "outroTelefone"   => $inscricao->getOutroTelefone(),
+      "email"           => $inscricao->getEmail()
+    ]);
   }
 }
