@@ -1,7 +1,7 @@
 <?php
-require_once "model/Inscricao.php";
-require_once "dao/InscricaoDao.php";
-require_once "banco/ConnectionFactory.php";
+require_once "../model/Inscricao.php";
+require_once "../dao/InscricaoDao.php";
+require_once "../banco/ConnectionFactory.php";
 
 if (isset($_POST['submit'])) {
   $inscricao = new Inscricao();
