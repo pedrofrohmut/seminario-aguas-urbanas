@@ -1,14 +1,13 @@
 <?php
+require_once "model/Inscricao.php";
+require_once "dao/InscricaoDao.php";
+require_once "banco/ConnectionFactory.php";
+
 if (ConnectionFactory::getConnection()) {
   echo "Connected successfully";
 } else {
   echo "Connection failed";
 }
-
-
-require_once "../model/Inscricao.php";
-require_once "../dao/InscricaoDao.php";
-require_once "../banco/ConnectionFactory.php";
 
 if (isset($_POST['submit'])) {
   $inscricao = new Inscricao();
