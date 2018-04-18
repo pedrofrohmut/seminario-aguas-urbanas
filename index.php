@@ -1,31 +1,7 @@
 <?php
-// $db = parse_url(getenv("DATABASE_URL"));
-//
-// $pdoTest = new PDO("pgsql:" . sprintf(
-//     "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-//     $db["host"],
-//     $db["port"],
-//     $db["user"],
-//     $db["pass"],
-//     ltrim($db["path"], "/")
-// ));
-//
-// if ($pdoTest) {
-//   echo "PDO Test - Connected successfully";
-// } else {
-//   echo "PDO Test - Connection failed";
-// }
-// echo '<br /><br />';
-
 require_once "model/Inscricao.php";
 require_once "dao/InscricaoDao.php";
 require_once "banco/ConnectionFactory.php";
-
-// if (ConnectionFactory::getConnection()) {
-//   echo "Connected successfully";
-// } else {
-//   echo "Connection failed";
-// }
 
 if (isset($_POST['submit'])) {
   $inscricao = new Inscricao();
