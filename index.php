@@ -99,7 +99,8 @@ if (isset($_POST['submit'])) {
           </tr>
           <tr>
             <td>10h00</td>
-            <td>Projeto paisagístico em área de APP</td>
+            <!-- <td>Projeto paisagístico em área de APP</td> -->
+            <td>Caminho do Rosário</td>
             <td>Palestrante: Eng. Agrônomo Jair Pinheiro</td>
           </tr>
           <tr>
