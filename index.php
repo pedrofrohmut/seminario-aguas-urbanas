@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 
         <p>O foco é o Rio da Prata e a intervenção será nas suas margens. Busca-se uma qualidade da água do Rio da Prata para uso de recreação atraindo as pessoas para o seu leito. Nessas condições, desenvolver um paisagismo ambientalmente correto utilizando-se de um deck de madeira, para transformar uma área atualmente ociosa, em um calçadão elevado. Esse deck de madeira dará acesso às lojas e escritórios ao longo do Rio da Prata.</p>
 
-        <p>Um empreendimento desse porte deverá ser feito por etapas. O primeiro um trecho terá 60m composto de um deck de madeira que interligará as Avenidas Ministro Jardim de Matos e Governador Carvalho Pinto, assim como com as lojas desse trecho. O deck promoverá a circulação de pedestres na área do centro e em consequência o movimento no comercio. </p>
+        <p>Um empreendimento desse porte deverá ser feito por etapas. O primeiro um trecho terá 60m composto de um deck de madeira que interligará as Avenidas Ministro Nelson Hungria e Governador Carvalho Pinto, assim como com as lojas desse trecho. O deck promoverá a circulação de pedestres na área do centro e em consequência o movimento no comercio. </p>
 
         <p>Regras claras e projeto bem detalhado, deverá atrair investidores para assumir contratos de concessão do tipo PPP – Participação Público e Privado, ou BTS – Built to Suit cada vez mais presentes em empreendimentos públicos. com demanda suficiente para gerir negócios imobiliários de interesses Públicos e Privados.</p>
 
