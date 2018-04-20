@@ -27,15 +27,25 @@ if (isset($_POST['submit'])) {
   // TODO: Change the charset do banco para UTF8 na ConnectionFactory
   if ($pdo = ConnectionFactory::getConnection()) {
     $dao = new InscricaoDao($pdo);
-    if ($dao->add($inscricao)) {
-      echo `<script>alert("Inscrição efetuada com sucesso")</script>`;
-    } else {
-      echo `<script>alert("Inscrição não pode ser efetuada no momento")</script>`;
-    }
+    // Inserts and returns if it is successful or not
+    $inscrito = $dao->add($inscricao);
     // Closes the connection
     $pdo = null;
   }
 }
+?>
+<?php
+  if (isset($inscrito)) :
+    if ($inscrito) :
+?>
+  <script>alert("Inscrição efetuada com sucesso")</script>
+<?php
+    else :
+?>
+  <script>alert("Inscrição não pode ser efetuada no momento")</script>
+<?php
+    endif;
+  endif;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -259,8 +269,10 @@ if (isset($_POST['submit'])) {
 </main>
 <footer class="text-center py-5">
   <div class="container">
-    Codificado por <a href="https://codepen.io/pedrofrohmut/full/WdpXLE?editors=1010">Pedro Frohmut</a>
+    Codificado por <a target="_blank" href="https://codepen.io/pedrofrohmut/full/WdpXLE?editors=1010">Pedro Frohmut</a>
   </div>
 </footer>
+<!-- JavaScript -->
+<script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
