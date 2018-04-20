@@ -70,10 +70,22 @@ p.titleFooter {
 fieldset legend {
   margin-bottom: 0.4em;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  text-decoration: underline;
 }
 label {
   display: none;
+}
+label.required {
+  font-weight: 600;
+  /* font-size: 1.1rem; */
+}
+label.required:after,
+span.required:after {
+  content: " *";
+  color: #F30;
+  font-size: 1.3rem;
+  font-weight: 900;
 }
 input[type="submit"].btn-primary {
   margin-top: 15px;

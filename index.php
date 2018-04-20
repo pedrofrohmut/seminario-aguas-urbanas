@@ -248,6 +248,7 @@ if (isset($_POST['submit'])) {
             <input type="text" class="form-control" name="email" placeholder="E-mail (correio eletrônico)" required>
           </div>
         </fieldset>
+        <p>Campos marcados com asterisco vermelho <span class="required">(</span> ) são obrigatórios</p>
         <input type="submit" name="submit" class="btn btn-primary btn-block" value="Enviar Ficha de Inscrição">
       </form>
     </div><!--col-sm-12-->
