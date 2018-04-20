@@ -181,23 +181,23 @@ if (isset($_POST['submit'])) {
           <legend>Identificação:</legend>
           <div class="form-group">
             <label class="required">Nome completo:</label>
-            <input type="text" class="form-control" name="nome" placeholder="Nome Completo" required>
+            <input type="text" class="form-control" name="nome" placeholder="Nome Completo (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">Data de nascimento:</label>
-            <input type="text" class="form-control" name="dataNascimento" placeholder="dia/mês/ano (dd/mm/aaaa) " required>
+            <input type="text" class="form-control" name="dataNascimento" placeholder="dia/mês/ano (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">RG / Org. Emissor / UF (Documento de Identidade):</label>
-            <input type="text" class="form-control" name="rg" placeholder="RG / Órgão Emissor / UF " required>
+            <input type="text" class="form-control" name="rg" placeholder="RG / Órgão Emissor / UF (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">CPF:</label>
-            <input type="text" class="form-control" name="cpf" placeholder="Número de CPF" required>
+            <input type="text" class="form-control" name="cpf" placeholder="Número de CPF (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">Profissão / Área de Atuação:</label>
-            <input type="text" class="form-control" name="profissao" placeholder="Profissão e área de atuação" required>
+            <input type="text" class="form-control" name="profissao" placeholder="Profissão e área de atuação (obrigatório)" required>
           </div>
         </fieldset>
         <!-- <hr> -->
@@ -205,31 +205,31 @@ if (isset($_POST['submit'])) {
           <legend>Endereço:</legend>
           <div class="form-group">
             <label class="required">Endereço/Logradouro:</label>
-            <input type="text" class="form-control" name="endereco" placeholder="Logradouro (rua, avenida, travessa, entre outros)" required>
+            <input type="text" class="form-control" name="endereco" placeholder="Logradouro (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">Número:</label>
-            <input type="text" class="form-control" name="endNumero" placeholder="Número" required>
+            <input type="text" class="form-control" name="endNumero" placeholder="Número (obrigatório)" required>
           </div>
           <div class="form-group">
             <label>Complemento:</label>
-            <input type="text" class="form-control" name="complemento" placeholder="Complemento (opicional)">
+            <input type="text" class="form-control" name="complemento" placeholder="Complemento">
           </div>
           <div class="form-group">
             <label>Bairro:</label>
-            <input type="text" class="form-control" name="bairro" placeholder="Bairro (opicional)">
+            <input type="text" class="form-control" name="bairro" placeholder="Bairro">
           </div>
           <div class="form-group">
             <label class="required">Cidade:</label>
-            <input type="text" class="form-control" name="cidade" placeholder="Cidade" required>
+            <input type="text" class="form-control" name="cidade" placeholder="Cidade (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">UF:</label>
-            <input type="text" class="form-control" name="uf" placeholder="Unidade Federativa - UF" required>
+            <input type="text" class="form-control" name="uf" placeholder="Unidade Federativa - UF (obrigatório)" required>
           </div>
           <div class="form-group">
             <label class="required">CEP:</label>
-            <input type="text" class="form-control" name="cep" placeholder="CEP" required>
+            <input type="text" class="form-control" name="cep" placeholder="CEP (obrigatório)" required>
           </div>
         </fieldset>
         <!-- <hr> -->
@@ -237,18 +237,17 @@ if (isset($_POST['submit'])) {
           <legend>Contato:</legend>
           <div class="form-group">
             <label class="required">Telefone / Celular:</label>
-            <input type="text" class="form-control" name="telefone" placeholder="Telefone (DDD) XXXXX-XXXX" required>
+            <input type="text" class="form-control" name="telefone" placeholder="DDD + Telefone (obrigatório)" required>
           </div>
           <div class="form-group">
             <label>Outro telefone:</label>
-            <input type="text" class="form-control" name="outroTelefone" placeholder="Outro telefone (opicional)">
+            <input type="text" class="form-control" name="outroTelefone" placeholder="Outro telefone">
           </div>
           <div class="form-group">
             <label class="required">E-mail:</label>
-            <input type="text" class="form-control" name="email" placeholder="E-mail (correio eletrônico)" required>
+            <input type="text" class="form-control" name="email" placeholder="E-mail (obrigatório)" required>
           </div>
         </fieldset>
-        <p>Campos marcados com asterisco vermelho <span class="required">(</span> ) são obrigatórios</p>
         <input type="submit" name="submit" class="btn btn-primary btn-block" value="Enviar Ficha de Inscrição">
       </form>
     </div><!--col-sm-12-->
