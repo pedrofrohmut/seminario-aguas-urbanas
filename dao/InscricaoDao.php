@@ -53,7 +53,7 @@ class InscricaoDao {
       :email
     )";
     $statement = $this->pdo->prepare($sql);
-    $statement->execute([
+    return $statement->execute([
       "nome"            => $inscricao->getNome(),
       "dataNascimento"  => $this->traduzDataParaBanco(
                            $inscricao->getDataNascimento()),

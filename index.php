@@ -27,7 +27,11 @@ if (isset($_POST['submit'])) {
   // TODO: Change the charset do banco para UTF8 na ConnectionFactory
   if ($pdo = ConnectionFactory::getConnection()) {
     $dao = new InscricaoDao($pdo);
-    $dao->add($inscricao);
+    if ($dao->add($inscricao)) {
+      echo `<script>alert("Inscrição efetuada com sucesso")</script>`;
+    } else {
+      echo `<script>alert("Inscrição não pode ser efetuada no momento")</script>`;
+    }
     // Closes the connection
     $pdo = null;
   }
